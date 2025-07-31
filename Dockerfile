@@ -19,6 +19,5 @@ FROM debian:stable-slim
 WORKDIR /usr/local/bin
 COPY --from=builder /app/rabbitprobe .
 
-# Run probe by default
-ENTRYPOINT ["rabbitprobe"]
-CMD ["probe", "start"]
+# Keep container running for interactive use
+CMD ["sleep", "infinity"]
