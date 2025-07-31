@@ -19,6 +19,6 @@ FROM debian:stable-slim
 WORKDIR /usr/local/bin
 COPY --from=builder /app/rabbitprobe .
 
-# Default command shows help
+# Run probe by default
 ENTRYPOINT ["rabbitprobe"]
-CMD ["--help"]
+CMD ["probe", "start"]

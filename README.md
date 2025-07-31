@@ -30,6 +30,15 @@ Send 100 messages:
 ./rabbitprobe send --ex data.ex --rk test --size 1024 --count 100
 ```
 
+## Running the container
+
+The provided `Dockerfile` builds an image that runs `rabbitprobe probe start`
+by default. To run other commands, override the container command, e.g.:
+
+```
+docker run myimage rabbitprobe send --ex data.ex --rk test --size 1024 --count 100
+```
+
 ## Stopping the probe
 
 `probe start` will keep a connection to RabbitMQ open until the process is
