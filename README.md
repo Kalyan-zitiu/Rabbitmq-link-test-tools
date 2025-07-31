@@ -16,6 +16,31 @@ This project provides a CLI utility `rabbitprobe` to probe RabbitMQ connectivity
 go build ./cmd/rabbitprobe
 ```
 
+## Usage
+
+`rabbitprobe` has a set of global flags followed by a command. The most
+important flag is `--addrs` which specifies one or more AMQP connection
+URIs separated by commas. Additional global flags include:
+
+- `--vhost` - RabbitMQ virtual host (default `/`).
+- `--log-file` - optional path to write logs on disk.
+- `--metrics-port` - port exposing Prometheus metrics (default `2112`).
+
+Available commands:
+
+- **`probe start`** – begin sending probe messages. Requires `--ex` and
+  `--rk` to define the target exchange and routing key. Use `--interval`
+  to control the send period.
+- **`probe stop`** – stop a running probe in the current process.
+- **`send`** – publish a fixed number of random payloads. Flags include
+  `--ex`, `--rk`, `--size` for message size, `--count` for how many
+  messages to send, and optional `--rate` to limit messages per second.
+- **`status`** – print whether the connection to RabbitMQ is currently
+  up.
+
+Run `rabbitprobe [command] --help` for the complete list of options for
+each command.
+
 ## Example
 
 Start a probe:
