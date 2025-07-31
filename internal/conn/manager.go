@@ -34,7 +34,7 @@ func (m *Manager) dial(addr string) (*amqp.Connection, error) {
 		Vhost:     m.vhost,
 		Heartbeat: time.Second,
 		Locale:    "en_US",
-		Dial:      (&net.Dialer{Timeout: time.Second, KeepAlive: 30 * time.Second}).DialContext,
+		Dial:      (&net.Dialer{Timeout: time.Second, KeepAlive: 30 * time.Second}).Dial,
 	}
 	return amqp.DialConfig(addr, cfg)
 }
