@@ -29,3 +29,10 @@ Send 100 messages:
 ```
 ./rabbitprobe send --ex data.ex --rk test --size 1024 --count 100
 ```
+
+## Stopping the probe
+
+`probe start` will keep a connection to RabbitMQ open until the process is
+terminated.  Press `Ctrl+C` in the terminal to stop the running probe and close
+the session. If the probe was started in the background, terminate the process
+with your usual tools (e.g. `kill`).
