@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Build stage
-FROM golang:1.21 AS builder
+FROM golang:1.24 AS builder
 WORKDIR /app
 
 # Copy go module files and download dependencies first for caching
