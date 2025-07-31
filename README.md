@@ -32,8 +32,9 @@ Send 100 messages:
 
 ## Running the container
 
-The provided `Dockerfile` builds an image that runs `rabbitprobe probe start`
-by default. To run other commands, override the container command, e.g.:
+The provided `Dockerfile` builds an image that keeps the container running with
+`sleep infinity` by default. Exec into the container to run `rabbitprobe`
+manually or override the command when starting the container, e.g.:
 
 ```
 docker run myimage rabbitprobe send --ex data.ex --rk test --size 1024 --count 100
